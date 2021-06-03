@@ -127,7 +127,18 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
         }
 
         if (adm == null) {
-            adm = JavaAudioDeviceModule.builder(reactContext).createAudioDeviceModule();
+            // adm = JavaAudioDeviceModule.builder(reactContext).createAudioDeviceModule();
+            JavaAudioDeviceModule.builder(reactContext)
+            .setUseHardwareAcousticEchoCanceler(false)
+            .setUseHardwareNoiseSuppressor(false)
+            .createAudioDeviceModule();
+
+            AudioManager am = (AudioManager)reactContext.getSystemService(reactContext.AUDIO_SERVICE);
+            am.setMode(AudioManager.MODE_IN_COMMUNICATION);
+            am.setSpeakerphoneOn(true);
+
+            Logging.d("SOUND_MODE", "communication : " + am.isSpeakerphoneOn() );
+
         }
 
         mFactory
