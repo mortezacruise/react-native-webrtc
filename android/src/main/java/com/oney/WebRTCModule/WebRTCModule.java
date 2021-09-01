@@ -134,11 +134,11 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
             .setUseHardwareNoiseSuppressor(false)
             .createAudioDeviceModule();
 
-            AudioManager am = (AudioManager)reactContext.getSystemService(reactContext.AUDIO_SERVICE);
-            am.setMode(AudioManager.MODE_IN_COMMUNICATION);
-            am.setSpeakerphoneOn(true);
+            // AudioManager am = (AudioManager)reactContext.getSystemService(reactContext.AUDIO_SERVICE);
+            // am.setMode(AudioManager.MODE_IN_COMMUNICATION);
+            // am.setSpeakerphoneOn(true);
 
-            Logging.d("SOUND_MODE", "communication : " + am.isSpeakerphoneOn() );
+            // Logging.d("SOUND_MODE", "communication : " + am.isSpeakerphoneOn() );
 
         }
 
